@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <style>
+      table,tr,th,td{
+        border: 1px solid black;
+        column-width: 240px;
+      }
+      td{
+        text-align: center;
+      }
+      button{
+        margin: 10px;
+      }
+      .heading_cart{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heading_cart">
+      <h3>Shopping Cart</h3>
+      <h3>items</h3>
+    </div>
+
+    <table>
+      <tr>
+        <th>Product image</th>
+        <th>data</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Remove</th>
+        
+      </tr>
+      {% for c in cart_item %}
+        <tr class="border">
+          <td><img src="{{ c.item.Prod_image.url }}" style="width: 130px;"></td>
+          <td><li  style="font-size: 18px; list-style: none;">{{ c.item.prod_Name }}</li>
+              <li style="list-style: none;">{{ c.item.Prod_Desc }}</li></td>
+          <td><button onclick="incrementCounter()">+</button><span id="counter-display">0</span><button onclick="decrementCounter()">-</button></td>
+          <td>{{ c.item.Prod_Price }}$</td>
+          <td>{{ c.item.Prod_Price }}$</td>
+          <td><a href="{% url 'delete_cart' c.id%}">Remove item</a></td>
+        </tr>
+      {% endfor%}
+
+    </table>
+    <div class="heading_cart">
+    <button><a href="{% url 'delete_all' %}">remeve all</a></button>
+    <h2>total =      </h2>
+    </div>
+    <script>
+      // Initialize a counter variable
+let counter = 0;
+
+// Function to increment the counter
+function incrementCounter() {
+  counter++;
+  updateCounterDisplay();
+}
+
+// Function to decrement the counter
+function decrementCounter() {
+  counter--;
+  updateCounterDisplay();
+}
+
+// Function to update the counter display on the web page
+function updateCounterDisplay() {
+  const counterDisplay = document.getElementById('counter-display');
+  counterDisplay.textContent = counter;
+}
+
+// Initial display update
+updateCounterDisplay();
+
+    </script>
+  </body>
+</html>

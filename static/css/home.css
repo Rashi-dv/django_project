@@ -1,0 +1,293 @@
+/* login */
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(24, 20, 20, 0.987);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+  }
+  
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .login-box a:hover {
+    background: #03f40f;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03f40f,
+                0 0 25px #03f40f,
+                0 0 50px #03f40f,
+                0 0 100px #03f40f;
+  }
+  
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03f40f);
+    animation: btn-anim1 2s linear infinite;
+  }
+
+
+
+
+
+
+
+  /* register.html */
+  .reg_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  form{
+    border: 1px solid rgb(84, 23, 23);
+  }
+  .register{
+    background-color: #000000;
+  }
+  .inputBox {
+    position: relative;
+  }
+  
+  .inputBox input {
+    height: 8px;
+    margin: 5px;
+    padding: 15px 20px;
+    outline: none;
+    background: transparent;
+    border-radius: 5px;
+    color: #ffffff;
+    border: 1px solid#03f40f;
+    font-size: 1.1em;
+  }
+  /* name */
+  .name_input input{
+    width: 99px;
+  }
+  
+  /* other */
+  .input_da input{
+    width: 250px;
+  }
+  .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.4s cubic-bezier(0.05, 0.81, 0, 0.93);
+    color: #ffffff;
+    letter-spacing: 0.1em;
+  }
+  
+  .inputBox input:focus ~ span,
+  .inputBox input:valid ~ span {
+    font-size: 0.7em;
+    transform: translateX(14px) translateY(-7.5px);
+    padding: 0 5px;
+    border-radius: 2px;
+    background: #212121;
+    letter-spacing: 0em;
+    border: 1px solid #03f40f;
+  }
+  
+  .name{
+    display: flex;
+  }
+
+  /* gender */
+  .radio-input {
+    display: flex;
+    flex-direction: row;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-left: 29px ;
+    margin-top: 5px ;
+  }
+
+  .radio-input input[type="radio"] {
+    
+    display: none;
+  }
+  .radio-input label{
+    font-size: 1em;
+  }
+  .radio-input label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 50px;
+    height: 8px;
+    border: 1px solid #03f40f;
+    background-color: #212121;
+    border-radius: 5px;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-input label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #000000;
+    border: 2px solid #03f40f;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-input input[type="radio"]:checked + label:before {
+    background-color: #03f40f;
+    top: 0;
+  }
+  
+  .radio-input input[type="radio"]:checked + label {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border-color: rgb(129, 235, 129);
+    animation: radio-translate 0.5s ease-in-out;
+  }
+  
+  @keyframes radio-translate {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* dropdown */
+  #Distict{
+    margin: 5px;
+    width: 290px;
+    height: 40px;
+    margin-left: 2px;
+    border: 1px solid #03f40f ;
+    background-color: #000000;
+    border-radius: 5px;
+    color:#ffffff;
+  }
+  .select{
+    margin: 5px;
+  }
+  .select label{
+    color: #ee8456;
+  }
+  #Distict option{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 1em;
+  }
+/* button */
+/* .btn {
+    height: 40px;
+    margin-left: 4em;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(14, 14, 26);
+    color: rgb(234, 234, 234);
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: 0px 0px 60px #1f4c65;
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  }
+  
+  .btn:active {
+    scale: 0.92;
+  }
+  
+  .btn:hover {
+    background: rgb(2,29,78);
+    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 232, 75, 0.873) 60%);
+    color: rgb(4, 4, 38);
+  } */
+
+  

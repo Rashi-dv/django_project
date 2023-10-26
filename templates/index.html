@@ -1,0 +1,151 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <style>
+     
+      .navbar{
+        position: relative;
+        margin-bottom: 100px;
+        border-bottom: 2px solid black;
+      }
+      .nave_button button{
+        background: none;
+        margin: 0 10px;
+        border: none;
+      }
+      .nave_button button a i{
+        color: white;
+        font-size: 20px;
+      }
+      .success{
+        margin: 15px;
+      }
+      .home_img{
+        position: absolute;
+        
+      }
+      .dropdown li a{
+        color: rgb(0, 0, 0);
+      }
+      
+      .homeimg img{
+        margin-bottom: 400px;
+        width: 500px;
+        height: 500px;
+        margin-top: -25%;
+        margin-left: 125%;
+        
+      }
+      .home_content{
+        
+        margin-left: 30px;
+        
+      }
+      .home_content h4{
+        color: rgb(203, 193, 193);
+        font-size: 22px;
+      }
+      .home_content h1{
+        color: floralwhite;
+        font-size: 40px;
+      }
+      .home_content p{
+        width: 350px;
+        color: rgb(187, 200, 211);
+      }
+      .home_content button{
+        border-radius: 15px;
+        width: 130px;
+        outline: none;
+        border: 1.5px solid black;
+        box-shadow: 2px 1px 2px 1px gainsboro;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      
+    </style>
+      
+  </head>
+  <body>
+    
+    <div class="home">
+      <img src="{% static 'image/homecolor.jpg' %}">
+    <nav class="navbar navbar-expand-lg navbar-light navebg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: white; font-size:25px; font-weight:600;">Eshop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nave_button" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color: white;">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                Product
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Headset</a></li>
+                <li><a class="dropdown-item" href="#">EarPhone</a></li>
+                <li><a class="dropdown-item" href="#">EarBuds</a></li>
+
+                 
+              </ul>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li> -->
+
+          </ul>
+          {% if user.is_authenticated %}
+              <button><a href="{% url 'logout' %}">Log out</a></button>
+              <button><a href=""><i class="fa-solid fa-cart-plus"></i></a></button>
+          {% else %}              
+              <button><a href="{% url 'login_form' %}">LOGIN</a></button>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+{% block home %}
+    <div class="home_img">
+        <div class="homeimg">
+            <img src="{% static 'image/homepng1.png' %}">
+        </div>
+        <div class="home_content">
+           <h4>NEW ARRIVAL 2023</h4>
+           <H1>Ultra Wirless 
+            Headphones</H1>
+           <p>Witness sound experience with an exclusive collection of Bluetooth Earphones & Wireless Headphones and plug into the mystical state of Nirvana. Shop Now!</p>
+           <button>SHOP NOW</button>
+        </div>
+    </div>
+    {% endblock %}
+  </div>
+    <h2></h2>
+  <div class="items">
+    {% for x in product%}
+    <div class="productCard">
+      <img src="{{ x.Prod_image.url }}">
+        <h3>{{ x.prod_Name }}</h3>
+        <h4>{{ x.Prod_Price}}$</h4>
+      <a href="{% url 'cartpage' x.id %}"><i class="fa-solid fa-circle-plus"></i></a>
+
+    </div>
+    {% endfor %}
+  </div>
+    
+   
+  </body>
+</html>

@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  </head>
+  <body class="register">
+    <div class="reg_form">
+        <form method="POST" action="{% url 'reg_form' %}" >
+                {% csrf_token %}
+                <div class="name">
+                    <div class="inputBox name_input">
+                        <input  type="text" name="first_name">
+                        <span>First name</span>
+                    </div>
+                    <div class="inputBox name_input">
+                        <input  type="text" name="last_name">
+                        <span>First name</span>
+                    </div>
+            </div>
+            <div class="username">
+                <div class="inputBox input_da ">
+                    <input  type="text" name="user_name">
+                    <span>User name</span>
+                </div>
+            </div>
+            <div class="email">
+                <div class="inputBox input_da ">
+                    <input  type="text" name="email">
+                    <span>Email</span>
+                </div>
+            </div>
+            <div class="tel_number">
+                <div class="inputBox input_da ">
+                    <input  type="number" name="tel_number">
+                    <span>Tel.Number</span>
+                </div>
+            </div>
+            <div class="address">
+                <label>Address : </label>
+                <textarea name="address" id="" cols="30" rows="5"></textarea>
+            </div>
+            <div class="gender">
+                <div class="radio-input">
+                    <input value="Male" name="gender" id="male" type="radio">
+                    <label for="male">Male</label>
+                    
+                    <input value="other" name="gender" id="other" type="radio">
+                    <label for="other">Other</label>
+                    <input value="female" name="gender" id="female" type="radio">
+                    <label for="female">Othe</label>
+                </div>
+            </div>
+            <div class="select">
+                <!-- <label for="Distict">Choose a Distict:</label> -->
+
+                <select name="distic" id="Distict">
+                    <option value="volvo">Choose a Distict:</option>
+            
+                    <option value="volvo">Alappuzha</option>
+                    <option value="saab">Ernakulam</option>
+                    <option value="mercedes">Kozhikode</option>
+                    <option value="audi">Malappuram</option>
+                    <option value="audi">Palakkad</option>
+                    <option value="audi">Kollam</option>
+                    <option value="audi">Kannur</option>
+                    <option value="audi">Kasaragod</option>
+                    <option value="audi">Idukki</option>
+                    <option value="audi">Kottayam</option>
+                    <option value="audi">Thrissur</option>
+                    <option value="audi">Pathanamathitta</option>
+                    <option value="audi">Wayanad</option>
+                    <option value="audi">Thiruvananthapuram</option>
+                    </select>
+            </div>
+
+            <!-- password -->
+            <div class="passWord">
+                <div class="inputBox input_da ">
+                    <input  type="password" name="password">
+                    <span>Password</span>
+                </div>
+            </div>
+            <!-- conform password -->
+            <div class="conform_password">
+                <div class="inputBox input_da ">
+                    <input  type="password" name="conf_password">
+                    <span>Conform Password</span>
+                </div>
+            </div>
+
+            <input type="submit" value="submit">
+            <!-- button -->
+            <!-- <button class="btn">
+                submit
+            </button> -->
+            
+            
+        </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <style>
+      tr,th,td{
+        border: 1px solid black;
+      }
+      img{
+        width: 70px;
+        height: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+        <tr>
+            <td>Product id</td>
+            <td>product name</td>
+            <td>product price</td>
+            <td>product desc</td>
+            <td>product image</td>
+        </tr>
+        {% for x in product %}
+        <tr>
+            <td>{{ x.Prod_Id}}</td>
+            <td>{{x.prod_Name}}</td>
+            <td>{{x.Prod_Price}}</td>
+            <td>{{x.Prod_Desc}}</td>
+            <td><img src="{{ x.Prod_image.url }}"></td>
+            <td>delete</td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+    
+  </body>
+</html>

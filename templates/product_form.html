@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+    <form method="POST" action="{% url 'pro_form' %}">
+        {% csrf_token %}
+        <label>prodect Id : </label>
+        <input type="number" name="Prouct_id" id=""> <br><br>
+        <label>Product Name : </label>
+        <input type="text" name="Product_name" id=""> <br><br>
+        <label>Product price : </label>
+        <input type="number" name="Product_price" id=""> <br><br>
+        <label>Product Decription : </label>
+        <input type="text" name="Product_desc" id=""> <br><br>
+        <label>product image : </label>
+        <input type="file" name="Product_image" id=""> <br><br>
+
+        <input type="submit" value="submit">
+
+        
+        
+    </form>
+  </body>
+</html>
